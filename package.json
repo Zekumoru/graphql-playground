@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && cp src/schema.graphql dist/schema.graphql",
+    "start": "tsx src/server.ts",
+    "dev": "tsx watch --include src/schema.graphql src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.13.4",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   }
 }
