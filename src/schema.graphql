@@ -5,4 +5,9 @@ type Query {
 type Book {
   title: String!
   pages: Int!
+  author: Author!
+}
+
+type Author {
+  name: String!
 }
