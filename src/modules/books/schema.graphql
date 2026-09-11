@@ -7,7 +7,3 @@ type Book {
   pages: Int!
   author: Author!
 }
-
-type Author {
-  name: String!
-}

@@ -2,7 +2,7 @@
 
 Work through one hands-on step at a time: explain, implement, review, then continue. Check off completed items together and adjust the path as we learn.
 
-Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and GraphQL Yoga serving the API through Node's built-in HTTP listener. Keep material decisions user-led.
+Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and GraphQL Yoga serving the API through Node's built-in HTTP listener. Organize the source into feature modules, keeping each feature's schema, resolvers, and data models together. Keep material decisions user-led.
 
 - [x] Understand schemas, queries, and how selected fields shape a response.
 - [x] Write a first query and explore a schema.
@@ -21,6 +21,7 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
 - [x] Resolve nested fields and explore relationships between types.
   - [x] Implement and review the book-to-author resolver.
   - [x] Verify a nested query against the endpoint.
+- [x] Organize feature modules and automate schema discovery, merging, and build assets.
 - [ ] Practice aliases and reusable fragments.
 - [ ] Add a mutation using input types.
 - [ ] Explore validation errors, resolver errors, and partial responses.
