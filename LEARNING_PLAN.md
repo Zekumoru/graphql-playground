@@ -22,7 +22,7 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
   - [x] Implement and review the book-to-author resolver.
   - [x] Verify a nested query against the endpoint.
 - [x] Organize feature modules and automate schema discovery, merging, and build assets.
-- [ ] Practice aliases and reusable fragments.
+- [x] Practice aliases and reusable fragments.
 - [ ] Add a mutation using input types.
 - [ ] Explore validation errors, resolver errors, and partial responses.
 - [ ] Call the API from TypeScript over HTTP and review the request lifecycle.
