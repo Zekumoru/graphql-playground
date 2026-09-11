@@ -1,0 +1,16 @@
+# Dependencies and local pnpm store
+node_modules/
+.pnpm-store/
+
+# Build output and TypeScript cache
+dist/
+*.tsbuildinfo
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# Logs and macOS metadata
+*.log
+.DS_Store
