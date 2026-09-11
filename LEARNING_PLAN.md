@@ -2,13 +2,18 @@
 
 Work through one hands-on step at a time: explain, implement, review, then continue. Check off completed items together and adjust the path as we learn.
 
-Use TypeScript, Node.js, pnpm, and VSCode where appropriate. Choose libraries and project structure together when needed.
+Use TypeScript, Node.js, pnpm, and VSCode, with GraphQL Yoga serving the API through Node's built-in HTTP listener. Keep material decisions user-led.
 
 - [x] Understand schemas, queries, and how selected fields shape a response.
 - [x] Write a first query and explore a schema.
 - [ ] Practice arguments, variables, and named operations.
-- [ ] Define schema types: scalars, objects, lists, and nullability.
-- [ ] Choose minimal tooling and implement a first query resolver in TypeScript.
+  - [x] Cover their syntax and roles.
+- [x] Define schema types: scalars, objects, lists, and nullability.
+- [x] Understand how resolvers supply field values.
+- [ ] Build the first GraphQL API in TypeScript.
+  - [x] Choose the stack and layout; initialize the package and install dependencies.
+  - [x] Configure TypeScript compilation.
+  - [ ] Implement a query resolver and expose it through Yoga.
 - [ ] Resolve nested fields and explore relationships between types.
 - [ ] Practice aliases and reusable fragments.
 - [ ] Add a mutation using input types.
