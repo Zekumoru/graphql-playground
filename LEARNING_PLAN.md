@@ -13,6 +13,7 @@ Use TypeScript, Node.js, pnpm, and VSCode, with GraphQL Yoga serving the API thr
 - [ ] Build the first GraphQL API in TypeScript.
   - [x] Choose the stack and layout; initialize the package and install dependencies.
   - [x] Configure TypeScript compilation.
+  - [x] Write and validate the books schema.
   - [ ] Implement a query resolver and expose it through Yoga.
 - [ ] Resolve nested fields and explore relationships between types.
 - [ ] Practice aliases and reusable fragments.
