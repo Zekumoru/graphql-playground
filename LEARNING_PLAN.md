@@ -8,6 +8,8 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
 - [x] Write a first query and explore a schema.
 - [ ] Practice arguments, variables, and named operations.
   - [x] Cover their syntax and roles.
+  - [ ] Implement and verify optional field arguments.
+  - [ ] Run a named operation with variables.
 - [x] Define schema types: scalars, objects, lists, and nullability.
 - [x] Understand how resolvers supply field values.
 - [x] Build the first GraphQL API in TypeScript.

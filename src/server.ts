@@ -7,6 +7,10 @@ interface Book {
   pages: number;
 }
 
+interface BookArgs {
+  minPages?: number | null;
+}
+
 const books: Book[] = [
   {
     title: "The Clockmaker's Garden",
@@ -23,11 +27,19 @@ const typeDefs = await readFile(
   'utf-8',
 );
 
+const booksResolver = (_parent: unknown, { minPages }: BookArgs): Book[] => {
+  if (minPages !== null && minPages !== undefined) {
+    return books.filter((book) => book.pages >= minPages);
+  }
+
+  return books;
+};
+
 const schema = createSchema({
   typeDefs,
   resolvers: {
     Query: {
-      books: (): Book[] => books,
+      books: booksResolver,
     },
   },
 });
