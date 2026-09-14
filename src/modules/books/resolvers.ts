@@ -7,12 +7,33 @@ interface BookArgs {
   minPages?: number | null;
 }
 
+interface AddBookArgs {
+  input: {
+    title: string;
+    pages: number;
+    authorId: string;
+  };
+}
+
 const booksResolver = (_parent: unknown, { minPages }: BookArgs): Book[] => {
   if (minPages !== null && minPages !== undefined) {
     return books.filter((book) => book.pages >= minPages);
   }
 
   return books;
+};
+
+const addBookResolver = (_parent: unknown, { input }: AddBookArgs): Book => {
+  const author = authors.find((author) => author.id === input.authorId);
+
+  if (!author) {
+    throw new Error(`Author '${input.authorId}' not found`);
+  }
+
+  const book: Book = { ...input };
+  books.push(book);
+
+  return book;
 };
 
 const bookAuthorResolver = (parent: Book): Author => {
@@ -28,6 +49,9 @@ const bookAuthorResolver = (parent: Book): Author => {
 export const bookResolvers = {
   Query: {
     books: booksResolver,
+  },
+  Mutation: {
+    addBook: addBookResolver,
   },
   Book: {
     author: bookAuthorResolver,
