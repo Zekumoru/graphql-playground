@@ -26,8 +26,8 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
 - [x] Add a mutation using input types.
   - [x] Define and review the mutation field and input object.
   - [x] Implement the resolver and verify creation through the API.
-- [ ] Explore validation errors, resolver errors, and partial responses.
+- [x] Explore validation errors, resolver errors, and partial responses.
   - [x] Verify schema validation rejects invalid input before execution.
   - [x] Observe resolver errors and non-null propagation.
-  - [ ] Explore partial responses.
+  - [x] Explain partial responses and nullable boundaries through examples.
 - [ ] Call the API from TypeScript over HTTP and review the request lifecycle.
