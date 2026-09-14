@@ -41,7 +41,7 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
 Read the [official GraphQL learning guide](https://graphql.org/learn/introduction/), discussing unclear concepts as they arise.
 
 - [x] Introduction
-- [ ] Schemas and Types
+- [x] Schemas and Types
 - [ ] Queries
 - [ ] Mutations
 - [ ] Subscriptions
