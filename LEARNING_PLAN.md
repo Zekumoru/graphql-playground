@@ -24,5 +24,7 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
 - [x] Organize feature modules and automate schema discovery, merging, and build assets.
 - [x] Practice aliases and reusable fragments.
 - [ ] Add a mutation using input types.
+  - [x] Define and review the mutation field and input object.
+  - [ ] Implement the resolver and verify creation through the API.
 - [ ] Explore validation errors, resolver errors, and partial responses.
 - [ ] Call the API from TypeScript over HTTP and review the request lifecycle.

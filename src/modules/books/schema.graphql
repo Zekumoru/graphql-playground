@@ -7,3 +7,13 @@ type Book {
   pages: Int!
   author: Author!
 }
+
+type Mutation {
+  addBook(input: AddBookInput!): Book!
+}
+
+input AddBookInput {
+  title: String!
+  pages: Int!
+  authorId: String!
+}
