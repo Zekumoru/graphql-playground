@@ -35,3 +35,17 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
   - [x] Configure operation discovery and generate client types.
   - [x] Use generated operations in the client and regenerate before running or building.
 - [x] Call the API from TypeScript over HTTP and review the request lifecycle.
+
+## Official documentation reading
+
+Read the [official GraphQL learning guide](https://graphql.org/learn/introduction/), discussing unclear concepts as they arise.
+
+- [x] Introduction
+- [ ] Schemas and Types
+- [ ] Queries
+- [ ] Mutations
+- [ ] Subscriptions
+- [ ] Validation
+- [ ] Execution
+- [ ] Response
+- [ ] Introspection
