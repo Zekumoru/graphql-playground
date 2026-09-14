@@ -2,6 +2,7 @@ import { authors } from '../authors/data.js';
 import type { Author } from '../authors/models.js';
 import { books } from './data.js';
 import type { Book } from './models.js';
+import { GraphQLError } from 'graphql';
 
 interface BookArgs {
   minPages?: number | null;
@@ -27,7 +28,7 @@ const addBookResolver = (_parent: unknown, { input }: AddBookArgs): Book => {
   const author = authors.find((author) => author.id === input.authorId);
 
   if (!author) {
-    throw new Error(`Author '${input.authorId}' not found`);
+    throw new GraphQLError(`Author '${input.authorId}' not found`);
   }
 
   const book: Book = { ...input };
@@ -40,7 +41,7 @@ const bookAuthorResolver = (parent: Book): Author => {
   const author = authors.find((author) => author.id === parent.authorId);
 
   if (!author) {
-    throw new Error(`Author '${parent.authorId}' not found`);
+    throw new GraphQLError(`Author '${parent.authorId}' not found`);
   }
 
   return author;
