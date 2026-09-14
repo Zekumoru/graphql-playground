@@ -49,3 +49,14 @@ Read the [official GraphQL learning guide](https://graphql.org/learn/introductio
 - [ ] Execution
 - [ ] Response
 - [ ] Introspection
+
+## AWS AppSync basics
+
+A focused hands-on session of roughly one hour using the existing AWS account. Proposed setup: a small books API in the AWS console, with DynamoDB, JavaScript resolvers, and API-key authentication.
+
+- [ ] Understand AppSync's role and how it differs from our Yoga server.
+- [ ] Discuss the proposed setup and settle the service and authentication choices.
+- [ ] Create the GraphQL API, books schema, and data source.
+- [ ] Understand and configure resolvers to create and retrieve books.
+- [ ] Test a mutation, a query, and an invalid request in the console.
+- [ ] Review the request flow and clean up the exercise resources.
