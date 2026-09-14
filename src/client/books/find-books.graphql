@@ -1,0 +1,9 @@
+query FindBooks($minimum: Int) {
+  books(minPages: $minimum) {
+    title
+    pages
+    author {
+      name
+    }
+  }
+}

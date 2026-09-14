@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && tsc && cpy \"modules/**/*.graphql\" ../dist/ --cwd=src --base=cwd",
     "start": "tsx src/server.ts",
-    "dev": "tsx watch --include \"src/modules/**/*.graphql\" src/server.ts"
+    "dev": "tsx watch --include \"src/modules/**/*.graphql\" src/server.ts",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "client": "pnpm codegen && tsx src/client.ts",
+    "build": "rimraf dist && pnpm codegen && tsc && cpy \"modules/**/*.graphql\" ../dist/ --cwd=src --base=cwd"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "7.4.1",
+    "@graphql-typed-document-node/core": "3.2.0",
     "@types/node": "^24.13.4",
     "cpy-cli": "7.0.0",
     "rimraf": "6.1.3",

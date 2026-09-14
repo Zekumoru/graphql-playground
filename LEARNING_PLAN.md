@@ -30,4 +30,8 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
   - [x] Verify schema validation rejects invalid input before execution.
   - [x] Observe resolver errors and non-null propagation.
   - [x] Explain partial responses and nullable boundaries through examples.
-- [ ] Call the API from TypeScript over HTTP and review the request lifecycle.
+- [x] Organize client operations in colocated `.graphql` files and generate TypeScript types with GraphQL Code Generator.
+  - [x] Install the generation CLI.
+  - [x] Configure operation discovery and generate client types.
+  - [x] Use generated operations in the client and regenerate before running or building.
+- [x] Call the API from TypeScript over HTTP and review the request lifecycle.
