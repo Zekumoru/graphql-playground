@@ -9,6 +9,12 @@ export type CreateBookInput = {
   title: string;
 };
 
+export type UpdateBookInput = {
+  id: string | number;
+  pages?: number | null | undefined;
+  title?: string | null | undefined;
+};
+
 export type CreateBookMutationVariables = Exact<{
   input: CreateBookInput;
 }>;
@@ -22,6 +28,13 @@ export type GetBookQueryVariables = Exact<{
 
 
 export type GetBookQuery = { getBook: { id: string, title: string, pages: number } | null };
+
+export type UpdateBookMutationVariables = Exact<{
+  input: UpdateBookInput;
+}>;
+
+
+export type UpdateBookMutation = { updateBook: { id: string, title: string, pages: number } | null };
 
 export class TypedDocumentString<TResult, TVariables>
   extends String
@@ -60,3 +73,12 @@ export const GetBookDocument = new TypedDocumentString(`
   }
 }
     `) as unknown as TypedDocumentString<GetBookQuery, GetBookQueryVariables>;
+export const UpdateBookDocument = new TypedDocumentString(`
+    mutation UpdateBook($input: UpdateBookInput!) {
+  updateBook(input: $input) {
+    id
+    title
+    pages
+  }
+}
+    `) as unknown as TypedDocumentString<UpdateBookMutation, UpdateBookMutationVariables>;

@@ -1,0 +1,9 @@
+# UpdateBookInput comes from the AppSync schema;
+# codegen generates its TypeScript counterpart.
+mutation UpdateBook($input: UpdateBookInput!) {
+  updateBook(input: $input) {
+    id
+    title
+    pages
+  }
+}

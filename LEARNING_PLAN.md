@@ -71,6 +71,6 @@ A focused hands-on session of roughly one hour using the existing AWS account in
   - [x] Verify the response against the DynamoDB-backed API.
 - [ ] Complete the CRUD lifecycle through the AppSync TypeScript client.
   - [x] Create a book.
-  - [ ] Update the created book.
+  - [x] Update the created book.
   - [ ] Delete the created book.
 - [ ] Clean up the exercise resources.

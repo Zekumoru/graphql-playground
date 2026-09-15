@@ -1,6 +1,8 @@
+import { parseArgs } from 'node:util';
 import { requestCreateBook } from './client/books/create-book.js';
 import { requestBook } from './client/books/get-book.js';
 import { loadAppSyncConfig, type AppSyncConfig } from './config.js';
+import { requestUpdateBook } from './client/books/update-book.js';
 
 type CommandHandler = (
   config: AppSyncConfig,
@@ -33,16 +35,55 @@ const runCreateBook: CommandHandler = (config, [title, pagesArgument]) => {
   });
 };
 
+const runUpdateBook: CommandHandler = (config, [bookId, ...rawOptions]) => {
+  if (!bookId) {
+    throw new Error('Missing book ID');
+  }
+
+  const options = rawOptions.filter(
+    (argument): argument is string => argument !== undefined,
+  );
+
+  const { values } = parseArgs({
+    args: options,
+    options: {
+      title: { type: 'string' },
+      pages: { type: 'string' },
+    },
+  });
+
+  const { title, pages: pagesArgument } = values;
+  if (title === undefined && pagesArgument === undefined) {
+    throw new Error('Provide --title, --pages, or both');
+  }
+
+  const pages = pagesArgument === undefined ? undefined : Number(pagesArgument);
+  if (pages !== undefined && !Number.isInteger(pages)) {
+    throw new Error('Page count must be an integer');
+  }
+
+  return requestUpdateBook(config, {
+    input: {
+      id: bookId,
+      ...(title === undefined ? {} : { title }),
+      ...(pages === undefined ? {} : { pages }),
+    },
+  });
+};
+
 const commands = new Map<string, CommandHandler>([
   ['get', runGetBook],
   ['create', runCreateBook],
+  ['update', runUpdateBook],
 ]);
 
 const [commandName, ...commandArguments] = process.argv.slice(2);
 const handler = commandName ? commands.get(commandName) : undefined;
 
 if (!handler) {
-  throw new Error('Usage: client.ts get <id> | create <title> <pages>');
+  throw new Error(
+    'Usage: client.ts get <id> | create <title> <pages> | update <id> [--title <title>] [--pages <pages>]',
+  );
 }
 
 const config = loadAppSyncConfig();
