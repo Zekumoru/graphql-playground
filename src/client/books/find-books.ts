@@ -1,4 +1,4 @@
-import { GraphQLRequest } from '../../graphql.types.js';
+import type { GraphQLRequest } from '../../graphql.types.js';
 import {
   FindBooksDocument,
   type FindBooksQueryVariables,

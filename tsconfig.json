@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ES2023",
     "module": "NodeNext",
+    "verbatimModuleSyntax": true,
     "rootDir": "src",
     "outDir": "dist",
     "strict": true,
