@@ -1,0 +1,122 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Book {
+  id: ID!
+  pages: Int!
+  title: String!
+}
+
+type BookConnection {
+  items: [Book]
+  nextToken: String
+}
+
+type Mutation {
+  createBook(input: CreateBookInput!): Book
+  deleteBook(input: DeleteBookInput!): Book
+  updateBook(input: UpdateBookInput!): Book
+}
+
+type Query {
+  getBook(id: ID!): Book
+  listBooks(filter: TableBookFilterInput, limit: Int, nextToken: String): BookConnection
+}
+
+type Subscription {
+  onCreateBook(id: ID, pages: Int, title: String): Book @aws_subscribe(mutations : ["createBook"])
+  onDeleteBook(id: ID, pages: Int, title: String): Book @aws_subscribe(mutations : ["deleteBook"])
+  onUpdateBook(id: ID, pages: Int, title: String): Book @aws_subscribe(mutations : ["updateBook"])
+}
+
+input CreateBookInput {
+  pages: Int!
+  title: String!
+}
+
+input DeleteBookInput {
+  id: ID!
+}
+
+input ModelSizeInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input TableBookFilterInput {
+  id: TableIDFilterInput
+  pages: TableIntFilterInput
+  title: TableStringFilterInput
+}
+
+input TableBooleanFilterInput {
+  attributeExists: Boolean
+  eq: Boolean
+  ne: Boolean
+}
+
+input TableFloatFilterInput {
+  attributeExists: Boolean
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+}
+
+input TableIDFilterInput {
+  attributeExists: Boolean
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  size: ModelSizeInput
+}
+
+input TableIntFilterInput {
+  attributeExists: Boolean
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input TableStringFilterInput {
+  attributeExists: Boolean
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  size: ModelSizeInput
+}
+
+input UpdateBookInput {
+  id: ID!
+  pages: Int
+  title: String
+}
