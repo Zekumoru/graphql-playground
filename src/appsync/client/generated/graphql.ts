@@ -4,6 +4,18 @@ type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** Internal type. DO NOT USE DIRECTLY. */
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 import type { DocumentTypeDecoration } from '@graphql-typed-document-node/core';
+export type CreateBookInput = {
+  pages: number;
+  title: string;
+};
+
+export type CreateBookMutationVariables = Exact<{
+  input: CreateBookInput;
+}>;
+
+
+export type CreateBookMutation = { createBook: { id: string, title: string, pages: number } | null };
+
 export type GetBookQueryVariables = Exact<{
   id: string | number;
 }>;
@@ -30,6 +42,15 @@ export class TypedDocumentString<TResult, TVariables>
   }
 }
 
+export const CreateBookDocument = new TypedDocumentString(`
+    mutation CreateBook($input: CreateBookInput!) {
+  createBook(input: $input) {
+    id
+    title
+    pages
+  }
+}
+    `) as unknown as TypedDocumentString<CreateBookMutation, CreateBookMutationVariables>;
 export const GetBookDocument = new TypedDocumentString(`
     query GetBook($id: ID!) {
   getBook(id: $id) {

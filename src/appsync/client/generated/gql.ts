@@ -15,12 +15,18 @@ import * as types from './graphql.js';
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
+    "mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    id\n    title\n    pages\n  }\n}": typeof types.CreateBookDocument,
     "query GetBook($id: ID!) {\n  getBook(id: $id) {\n    id\n    title\n    pages\n  }\n}": typeof types.GetBookDocument,
 };
 const documents: Documents = {
+    "mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    id\n    title\n    pages\n  }\n}": types.CreateBookDocument,
     "query GetBook($id: ID!) {\n  getBook(id: $id) {\n    id\n    title\n    pages\n  }\n}": types.GetBookDocument,
 };
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    id\n    title\n    pages\n  }\n}"): typeof import('./graphql.js').CreateBookDocument;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
