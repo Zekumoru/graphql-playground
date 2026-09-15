@@ -65,4 +65,8 @@ A focused hands-on session of roughly one hour using the existing AWS account in
   - [x] Retrieve the stored book in a separate query.
   - [x] Test an invalid request.
 - [x] Review the request flow.
+- [ ] Connect the repository's TypeScript client to the AppSync API.
+  - [ ] Configure the endpoint and API key without committing credentials.
+  - [ ] Generate types for the AppSync schema and send a request from the client.
+  - [ ] Verify the response against the DynamoDB-backed API.
 - [ ] Clean up the exercise resources.
