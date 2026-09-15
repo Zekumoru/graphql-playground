@@ -69,4 +69,8 @@ A focused hands-on session of roughly one hour using the existing AWS account in
   - [x] Configure the endpoint and API key without committing credentials.
   - [x] Generate types for the AppSync schema and send a request from the client.
   - [x] Verify the response against the DynamoDB-backed API.
+- [ ] Complete the CRUD lifecycle through the AppSync TypeScript client.
+  - [ ] Create a book.
+  - [ ] Update the created book.
+  - [ ] Delete the created book.
 - [ ] Clean up the exercise resources.
