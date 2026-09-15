@@ -9,6 +9,10 @@ export type CreateBookInput = {
   title: string;
 };
 
+export type DeleteBookInput = {
+  id: string | number;
+};
+
 export type UpdateBookInput = {
   id: string | number;
   pages?: number | null | undefined;
@@ -21,6 +25,13 @@ export type CreateBookMutationVariables = Exact<{
 
 
 export type CreateBookMutation = { createBook: { id: string, title: string, pages: number } | null };
+
+export type DeleteBookMutationVariables = Exact<{
+  input: DeleteBookInput;
+}>;
+
+
+export type DeleteBookMutation = { deleteBook: { id: string, title: string, pages: number } | null };
 
 export type GetBookQueryVariables = Exact<{
   id: string | number;
@@ -64,6 +75,15 @@ export const CreateBookDocument = new TypedDocumentString(`
   }
 }
     `) as unknown as TypedDocumentString<CreateBookMutation, CreateBookMutationVariables>;
+export const DeleteBookDocument = new TypedDocumentString(`
+    mutation DeleteBook($input: DeleteBookInput!) {
+  deleteBook(input: $input) {
+    id
+    title
+    pages
+  }
+}
+    `) as unknown as TypedDocumentString<DeleteBookMutation, DeleteBookMutationVariables>;
 export const GetBookDocument = new TypedDocumentString(`
     query GetBook($id: ID!) {
   getBook(id: $id) {

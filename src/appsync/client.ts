@@ -3,6 +3,7 @@ import { requestCreateBook } from './client/books/create-book.js';
 import { requestBook } from './client/books/get-book.js';
 import { loadAppSyncConfig, type AppSyncConfig } from './config.js';
 import { requestUpdateBook } from './client/books/update-book.js';
+import { requestDeleteBook } from './client/books/delete-book.js';
 
 type CommandHandler = (
   config: AppSyncConfig,
@@ -71,10 +72,21 @@ const runUpdateBook: CommandHandler = (config, [bookId, ...rawOptions]) => {
   });
 };
 
+const runDeleteBook: CommandHandler = (config, [bookId]) => {
+  if (!bookId) {
+    throw new Error('Missing book ID');
+  }
+
+  return requestDeleteBook(config, {
+    input: { id: bookId },
+  });
+};
+
 const commands = new Map<string, CommandHandler>([
   ['get', runGetBook],
   ['create', runCreateBook],
   ['update', runUpdateBook],
+  ['delete', runDeleteBook],
 ]);
 
 const [commandName, ...commandArguments] = process.argv.slice(2);
@@ -82,7 +94,7 @@ const handler = commandName ? commands.get(commandName) : undefined;
 
 if (!handler) {
   throw new Error(
-    'Usage: client.ts get <id> | create <title> <pages> | update <id> [--title <title>] [--pages <pages>]',
+    'Usage: client.ts get <id> | create <title> <pages> | update <id> [--title <title>] [--pages <pages>] | delete <id>',
   );
 }
 

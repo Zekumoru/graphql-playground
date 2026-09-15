@@ -1,0 +1,9 @@
+# DeleteBookInput comes from the AppSync schema;
+# codegen generates its TypeScript counterpart.
+mutation DeleteBook($input: DeleteBookInput!) {
+  deleteBook(input: $input) {
+    id
+    title
+    pages
+  }
+}
