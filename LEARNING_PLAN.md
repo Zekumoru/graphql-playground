@@ -35,6 +35,9 @@ Use TypeScript, Node.js, pnpm, and VSCode, with tsx running the source and Graph
   - [x] Configure operation discovery and generate client types.
   - [x] Use generated operations in the client and regenerate before running or building.
 - [x] Call the API from TypeScript over HTTP and review the request lifecycle.
+- [x] Implement and verify a GraphQL subscription with Yoga.
+  - [x] Define `Subscription.bookAdded` with a typed in-memory Pub/Sub topic.
+  - [x] Publish from `addBook` and receive the event over SSE in GraphiQL.
 
 ## Official documentation reading
 
@@ -44,7 +47,7 @@ Read the [official GraphQL learning guide](https://graphql.org/learn/introductio
 - [x] Schemas and Types
 - [x] Queries
 - [x] Mutations
-- [ ] Subscriptions
+- [x] Subscriptions
 - [ ] Validation
 - [ ] Execution
 - [ ] Response

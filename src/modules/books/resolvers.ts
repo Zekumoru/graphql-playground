@@ -1,8 +1,14 @@
+import { GraphQLError } from 'graphql';
+import { createPubSub } from 'graphql-yoga';
 import { authors } from '../authors/data.js';
 import type { Author } from '../authors/models.js';
 import { books } from './data.js';
 import type { Book } from './models.js';
-import { GraphQLError } from 'graphql';
+import type { GraphQLSubscriptionResolver } from '../../graphql.types.js';
+
+const pubSub = createPubSub<{
+  bookAdded: [book: Book];
+}>();
 
 interface BookArgs {
   minPages?: number | null;
@@ -33,9 +39,15 @@ const addBookResolver = (_parent: unknown, { input }: AddBookArgs): Book => {
 
   const book: Book = { ...input };
   books.push(book);
+  pubSub.publish('bookAdded', book);
 
   return book;
 };
+
+const bookAddedResolver = {
+  subscribe: () => pubSub.subscribe('bookAdded'),
+  resolve: (book) => book,
+} satisfies GraphQLSubscriptionResolver<Book>;
 
 const bookAuthorResolver = (parent: Book): Author => {
   const author = authors.find((author) => author.id === parent.authorId);
@@ -53,6 +65,9 @@ export const bookResolvers = {
   },
   Mutation: {
     addBook: addBookResolver,
+  },
+  Subscription: {
+    bookAdded: bookAddedResolver,
   },
   Book: {
     author: bookAuthorResolver,
