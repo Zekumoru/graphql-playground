@@ -42,8 +42,8 @@ Read the [official GraphQL learning guide](https://graphql.org/learn/introductio
 
 - [x] Introduction
 - [x] Schemas and Types
-- [ ] Queries
-- [ ] Mutations
+- [x] Queries
+- [x] Mutations
 - [ ] Subscriptions
 - [ ] Validation
 - [ ] Execution
