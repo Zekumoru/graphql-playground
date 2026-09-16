@@ -51,7 +51,7 @@ Read the [official GraphQL learning guide](https://graphql.org/learn/introductio
 - [x] Validation
 - [x] Execution
 - [x] Response
-- [ ] Introspection
+- [x] Introspection
 
 ## AWS AppSync basics
 
