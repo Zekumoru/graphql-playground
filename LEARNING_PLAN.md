@@ -48,9 +48,9 @@ Read the [official GraphQL learning guide](https://graphql.org/learn/introductio
 - [x] Queries
 - [x] Mutations
 - [x] Subscriptions
-- [ ] Validation
-- [ ] Execution
-- [ ] Response
+- [x] Validation
+- [x] Execution
+- [x] Response
 - [ ] Introspection
 
 ## AWS AppSync basics
